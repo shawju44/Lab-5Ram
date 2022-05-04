@@ -1,0 +1,54 @@
+module RAM256to32 (din, do,  clk, addr, rw);
+
+input rw, clk;
+parameter N = 31;
+input [N:0] din 
+input [7:0] addr;
+
+
+output wire [N:0] do;
+
+wire [3:0] s;
+wire s0, s1, s2, s3;
+
+wire [N:0] D0, D1, D2, D3;
+
+
+
+decoder inst0 (addr[7:6], s);
+
+
+
+assign s0 = s[0];
+assign s1 = s[1];
+assign s2 = s[2];
+assign s3 = s[3];
+
+
+RAM64to8 inst1 (din[7:0], rw, addr[5:0], s0, clk, D0[7:0]);
+RAM64to8 inst2 (din[15:8], rw, addr[5:0], s0, clk, D0[15:8]);
+RAM64to8 inst3 (din[23:16], rw, addr[5:0], s0, clk, D0[23:16]);
+RAM64to8 inst4 (din[31:24], rw, addr[5:0], s0, clk, D0[31:24]);
+
+
+RAM64to8 inst5 (din[7:0], rw,addr[5:0],  s1, clk, D1[7:0]);
+RAM64to8 inst6 (din[15:8], rw, addr[5:0], s1, clk, D1[15:8]);
+RAM64to8 inst7 (din[23:16], rw, addr[5:0], s1, clk, D1[23:16]);
+RAM64to8 inst8 (din[31:24], rw, addr[5:0], s1, clk, D1[31:24]);
+
+
+RAM64to8 inst9 (din[7:0], rw, addr[5:0],  s2, clk, D2[7:0]);
+RAM64to8 inst10 (din[15:8], rw, addr[5:0], s2, clk, D2[15:8]);
+RAM64to8 inst11 (din[23:16], rw, addr[5:0], s2, clk, D2[23:16]);
+RAM64to8 inst12 (din[31:24], rw, addr[5:0], s2, clk, D2[31:24]);
+
+
+RAM64to8 inst13 (din[7:0], rw, addr[5:0], s3, clk, D3[7:0]);
+RAM64to8 inst14 (din[15:8], rw, addr[5:0], s3, clk, D3[15:8]);
+RAM64to8 inst15 (din[23:16], rw, addr[5:0], s3, clk, D3[23:16]);
+RAM64to8 inst16 (din[31:24], rw, addr[5:0], s3, clk, D3[31:24]);
+
+
+
+
+endmodule
