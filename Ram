@@ -31,7 +31,7 @@ RAM64to8 inst3 (din[23:16], rw, addr[5:0], s0, clk, D0[23:16]);
 RAM64to8 inst4 (din[31:24], rw, addr[5:0], s0, clk, D0[31:24]);
 
 
-RAM64to8 inst5 (din[7:0], rw,addr[5:0],  s1, clk, D1[7:0]);
+RAM64to8 inst5 (din[7:0], rw, addr[5:0],  s1, clk, D1[7:0]);
 RAM64to8 inst6 (din[15:8], rw, addr[5:0], s1, clk, D1[15:8]);
 RAM64to8 inst7 (din[23:16], rw, addr[5:0], s1, clk, D1[23:16]);
 RAM64to8 inst8 (din[31:24], rw, addr[5:0], s1, clk, D1[31:24]);
